@@ -281,11 +281,11 @@ routing {
 
 ## JWT Authentication
 
-Instead of using a fixed authentication, we are going to use JWT tokens.
+Instead of using a fixed authentication, we are going to use JSON Web Tokens.
 
 We are going to add a login-register route. That route will register a user if it doesn't exist,
-and for a valid login or register it will return a JWT token.
-The JWT token will hold the user name, and posting will link a snippet to the user.
+and for a valid login or register it will return a JWT.
+The JWT will hold the user name, and posting will link a snippet to the user.
 
 We will need to install and configure JWT (replacing the basic auth):
 
@@ -337,7 +337,7 @@ routing {
 }
 ```
 
-Now we can already try to obtain a JWT token for our user:
+Now we can already try to obtain a JWT for our user:
 
 {% comment %}
 ### IntelliJ
@@ -494,7 +494,7 @@ Awesome!
 ## StatusPages
 
 Now let's refine things a bit. A HTTP API should use HTTP Status codes to provide semantic information about errors.
-Right now, when an exception is thrown (for example when trying to get a JWT token from an user that already exists,
+Right now, when an exception is thrown (for example when trying to get a JWT from an user that already exists,
 but with a wrong password), a 500 server error is returned. We can do it better, and the StatusPages features
 will allow you to do this by capturing specific exceptions and generating the result.
 
